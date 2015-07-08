@@ -1,1 +1,0 @@
-# mazamas_climbs

@@ -1,0 +1,23 @@
+{
+  "name": "mazamas_climbs",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eddieferrer/mazamas_climbs",
+  "authors": [
+    "Eddie F <eferrer@gmail.com>"
+  ],
+  "description": "A friendlier version of the mazamas climb calendar",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "dynatable": "~0.3.1",
+    "html5-boilerplate": "~5.2.0",
+    "foundation": "~5.5.2"
+  }
+}
