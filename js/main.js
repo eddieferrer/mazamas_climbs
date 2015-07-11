@@ -1,26 +1,11 @@
 $(function() {
-    var thead = '<tr>' +
-            '<th>' + 'Climb' + '</th>' +
-            '<th>' + 'Leave' + '</th>' +
-            '<th>' + 'Return' + '</th>' +
-            '<th>' + 'Peak' + '</th>' +
-            '<th>' + 'Route' + '</th>' +
-            '<th>' + 'grade' + '</th>' +
-            '<th>' + 'Leader' + '</th>' +
-            '<th>' + 'gradEmphasis' + '</th>' +
-            '<th>' + 'partySize' + '</th>' +
-            '<th>' + 'Spots' + '</th>' +
-            '<th>' + 'Status' + '</th>' +
-            '<th>' + 'Updated' + '</th>' +
-            '<th>' + 'details' + '</th>' +
-          '</tr>';
-
-    $('#mazama_climb_load').find('thead').html(thead);
 
     // Function that renders the list items from our records
     function ulWriter(rowIndex, record, columns, cellWriter) {
-      var tr;
-      tr = '<tr>' +
+      // console.log(record);
+      var climb_block;
+      climb_block = '<tr class="panel">' +
+            '<td>' + record.details + '</td>' +
             '<td>' + record.climbNumber + '</td>' +
             '<td>' + record.departureDate + '</td>' +
             '<td>' + record.returnDate + '</td>' +
@@ -33,16 +18,15 @@ $(function() {
             '<td>' + record.spotsRemaining + '</td>' +
             '<td>' + record.status + '</td>' +
             '<td>' + record.lastUpdate + '</td>' +
-            '<td>' + record.details + '</td>' +
            '</tr>';
       if ( rowIndex > 0 ) {
-          return tr;
+          return climb_block;
       }
     }
 
     // Function that creates our records from the DOM when the page is loaded
     function ulReader(index, li, record) {
-      console.log(record);
+      // console.log(record);
       var $li = $(li);
           record.details = $li.find('td:nth-child(1)').html();
           record.climbNumber = $li.find('td:nth-child(2)').html();
@@ -59,20 +43,57 @@ $(function() {
           record.lastUpdate = $li.find('td:nth-child(13)').html();
     }
 
-    $('#mazama_climb_load').dynatable({
-     table: {
-       headRowSelector: 'thead tr',
-       bodyRowSelector: 'tbody tr'
-     },
-     dataset: {
-       perPageDefault: 50,
-       perPageOptions: [25, 50]
-     },
-     writers: {
-       _rowWriter: ulWriter
-     },
-     readers: {
-       _rowReader: ulReader
-     }
+
+    var dynatable = $('#mazama_climb_load')
+    .bind('dynatable:init', function(e, dynatable) {
+      dynatable.queries.functions["search-grade"] = function(record, queryValue) {
+        for (var i = 0; i < queryValue.length; i++) {
+           if ( record.grade.includes(queryValue[i]) ) {
+             return true
+           }
+        }
+        return false
+      };
+    })
+    .dynatable({
+        features: {
+            paginate: true,
+            recordCount: true,
+            search: false,
+            perPageSelect: false,
+            pushState: false
+        },
+        table: {
+            bodyRowSelector: 'tbody tr'
+        },
+        dataset: {
+            perPageDefault: 50,
+            perPageOptions: [25, 50]
+        },
+        writers: {
+            _rowWriter: ulWriter
+        },
+        readers: {
+            _rowReader: ulReader
+        },
+        inputs: {
+          queries: $('#search-status ')
+        }
+    }).data('dynatable');
+
+    $('.search-grade').change( function() {
+        var checked_values = [];
+        $('.search-grade').each( function (){
+          if ( $(this).is(":checked") ) {
+            checked_values.push($(this).val());
+          }
+        });
+        if ( checked_values.length > 0 ) {
+          dynatable.queries.add("search-grade",checked_values);
+        } else {
+          dynatable.queries.remove("search-grade");
+        }
+        dynatable.process();
     });
+
 });

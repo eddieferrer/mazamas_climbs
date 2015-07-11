@@ -1546,11 +1546,11 @@
             for (var i = 0, len = inputQueries.length; i < len; i++) {
               var attr = inputQueries[i];
               if (data[label][attr]) {
-                if (typeof urlOptions[label] === 'undefined') { urlOptions[label] = {}; }
-                urlOptions[label][attr] = data[label][attr];
-              } else {
-                delete urlOptions[label][attr];
-              }
+                 if (typeof urlOptions[label] === 'undefined') { urlOptions[label] = {}; }
+                 urlOptions[label][attr] = data[label][attr];
+               } else if(urlOptions[label]) {
+                 delete urlOptions[label][attr];
+               }
             }
             continue;
           }

@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css"/>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bower_components/dynatable/jquery.dynatable.css">
-
-    <link rel="stylesheet" href="js/zurb-responsive-tables/responsive-tables.css">
 </head>
 
 <body>
@@ -29,7 +27,7 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="large-12 columns">
-        <table id="mazama_climb_load" class="responsive">
+        <table id="mazama_climb_load">
           <thead>
           <tr>
           <th>Details</th>
@@ -2517,6 +2515,15 @@
     </div>
 
     <div class="large-12 columns">
+      <select id="search-status" name="status">
+        <option></option>
+        <option>Cancelled</option>
+        <option>Full</option>
+        <option>Open</option>
+      </select>
+      <input class="search-grade" name="gradeA" type="checkbox" value="A">A
+      <input class="search-grade" name="gradeB" type="checkbox" value="B">B
+      <input class="search-grade" name="gradeC" type="checkbox" value="C">C
       Restriction codes
       Most Mazamas climbs are open to anyone who applies.  Some leaders prefer to restrict their climbs in some manner.  These “restriction codes” are listed below:
 
@@ -2540,7 +2547,7 @@
       D - Same as “C” level except on steep snow slopes, glacier travel and crevasse rescue, self-arrest, belaying, rappelling and 5th class rock climbing.  (examples: West Ridge of Mt. Stuart, Mt Hood, Sandy Glacier Headwall)
       E -Multi-pitch technical routes same as “D”, with high degree of self-sufficiency and proficiency using technical skills under high exposure, sharing high angle leads, setting protection and anchors.  (examples: North ridge of Mt. Stuart, Beckey Route, Liberty Bell)
     </div>
-    
+
     <footer>
         <div class="large-12 columns">
             <hr/>
@@ -2574,7 +2581,6 @@
       // });
 
     </script>
-    <script src="js/zurb-responsive-tables/responsive-tables.js"></script>
 
 </body>
 </html>
