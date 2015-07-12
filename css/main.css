@@ -33,3 +33,57 @@ header h1 {
   text-indent: 40px;
   font-weight: bold;
 }
+
+.left-off-canvas-toggle .menu {
+  float: left;
+  display: block;
+  position: fixed;
+  margin: 3.5rem 2.5rem;
+  z-index:1000;
+  color: white;
+}
+
+.move-left .exit-off-canvas {
+  box-shadow: none;
+}
+
+.move-left > .inner-wrap {
+  transform: translate3d(-35%, 0, 0); }
+
+.top-bar,
+.middle-bar,
+.bottom-bar {
+  display: block;
+  width: 40px;
+  height: 10px;
+  background-color: #FFF;
+  margin-bottom: 4px;
+  transition: transform 0.4s cubic-bezier(1, 0, 0, 1) 0, background-color 0.6s ease 0; }
+
+.top-bar, .bottom-bar {
+  transform-origin: 100% 50%; }
+
+.middle-bar {
+  transition-property: opacity;
+  transition-duration: 0.6s; }
+
+.top-bar-close {
+  transform: rotate(-45deg);
+  background-color: #FFF; }
+
+.middle-bar-close {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.3s; }
+
+.bottom-bar-close {
+  transform: rotate(45deg);
+  background-color: #FFF;
+}
+.left-off-canvas-menu {
+  background-color: #eee;
+}
+.left-off-canvas-menu #filter-form {
+  width: 200px;
+  padding: 1em;
+}
