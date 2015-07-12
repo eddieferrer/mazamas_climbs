@@ -2,48 +2,63 @@ $(function() {
 
     // Function that renders the list items from our records
     function ulWriter(rowIndex, record, columns, cellWriter) {
-      // console.log(record);
-      var climb_block;
-      climb_block = '<tr class="panel">' +
-            '<td>' + record.details + '</td>' +
-            '<td>' + record.climbNumber + '</td>' +
-            '<td>' + record.departureDate + '</td>' +
-            '<td>' + record.returnDate + '</td>' +
-            '<td>' + record.peak + '</td>' +
-            '<td>' + record.route + '</td>' +
-            '<td>' + record.grade + '</td>' +
-            '<td>' + record.leader + '</td>' +
-            '<td>' + record.gradEmphasis + '</td>' +
-            '<td>' + record.partySize + '</td>' +
-            '<td>' + record.spotsRemaining + '</td>' +
-            '<td>' + record.status + '</td>' +
-            '<td>' + record.lastUpdate + '</td>' +
-           '</tr>';
-      if ( rowIndex > 0 ) {
-          return climb_block;
-      }
+      //console.log(record);
+      var climb_table_row = '<li class="climb_panel panel">' +
+        '<div class="row">' +
+          '<div class="small-6 columns">' +
+            '<h2>' +
+              '<strong><span class="climbNumber">' + record.climbNumber + '</span></strong>' +
+            '</h2>' +
+            '<h3>' +
+              '<span class="peak">' + record.peak + '</span>' +
+            '</h3>' +
+            '<h4>' +
+              '<strong><span class="route">' + record.route + '</span></strong>' +
+              '<em><span>Grade:<span class="grade">' + record.grade + '</span></span></em>' +
+            '</h4>' +
+          '</div>' +
+          '<div class="small-3 columns">' +
+            '<span class="departureDate">' + record.departureDate + '</span> > <span class="returnDate">' + record.returnDate + '</span> <br/>' +
+            '<span>Add to Google Calendar</span>' +
+            'Leader:' +
+            '<span class="leader">' + record.leader +
+            '</span>' +
+            '<span class="gradEmphasis">' + record.gradEmphasis + '</span>' +
+            '<span>Open Spots: <span class="spotsRemaining">' + record.spotsRemaining + '</span>/<span class="partySize">' + record.partySize + '</span></span>' +
+          '</div>' +
+          '<div class="small-3 columns">' +
+            '<span class="details">' + record.details + '</span>' +
+          '</div>' +
+          '<div class="row">' +
+            '<span class="status">' + record.status + '</span>' +
+            '<span class="lastUpdate">' + record.lastUpdate + '</span>' +
+          '</div>' +
+        '</div>' +
+      '</li>';
+
+        return climb_table_row;
     }
 
     // Function that creates our records from the DOM when the page is loaded
     function ulReader(index, li, record) {
       // console.log(record);
       var $li = $(li);
-          record.details = $li.find('td:nth-child(1)').html();
-          record.climbNumber = $li.find('td:nth-child(2)').html();
-          record.departureDate = $li.find('td:nth-child(3)').html();
-          record.returnDate = $li.find('td:nth-child(4)').html();
-          record.peak = $li.find('td:nth-child(5)').html();
-          record.route = $li.find('td:nth-child(6)').html();
-          record.grade = $li.find('td:nth-child(7)').html();
-          record.leader = $li.find('td:nth-child(8)').html();
-          record.gradEmphasis = $li.find('td:nth-child(9)').html();
-          record.partySize = $li.find('td:nth-child(10)').html();
-          record.spotsRemaining = $li.find('td:nth-child(11)').html();
-          record.status = $li.find('td:nth-child(12)').html();
-          record.lastUpdate = $li.find('td:nth-child(13)').html();
+          record.details = $li.find('span.details').html();
+          record.climbNumber = $li.find('span.climbNumber').html();
+          record.departureDate = $li.find('span.departureDate').html();
+          record.returnDate = $li.find('span.returnDate').html();
+          record.peak = $li.find('span.peak').html();
+          record.route = $li.find('span.route').html();
+          record.grade = $li.find('span.grade').html();
+          record.leader = $li.find('span.leader').html();
+          record.gradEmphasis = $li.find('span.gradEmphasis').html();
+          record.partySize = $li.find('span.partySize').html();
+          record.spotsRemaining = $li.find('span.spotsRemaining').html();
+          record.status = $li.find('span.status').html();
+          record.lastUpdate = $li.find('span.lastUpdate').html();
     }
 
-    var dynatable = $('#mazama_climb_load')
+    var dynatable = $('#XXXmazama_climb_load')
     .bind('dynatable:init', function(e, dynatable) {
       $('#sort').change( function(e) {
         dynatable.sorts.clear();
@@ -62,6 +77,13 @@ $(function() {
         return false
       };
     })
+    .bind('dynatable:init', function(e, dynatable) {
+      dynatable.queries.functions["search-status"] = function(record, queryValue) {
+         if ( record.status == queryValue ) {
+           return true
+         }
+      };
+    })
     .dynatable({
         features: {
             paginate: true,
@@ -71,7 +93,7 @@ $(function() {
             pushState: false
         },
         table: {
-            bodyRowSelector: 'tbody tr'
+            bodyRowSelector: 'li'
         },
         dataset: {
             perPageDefault: 50,
@@ -99,6 +121,14 @@ $(function() {
           dynatable.queries.add("search-grade",checked_values);
         } else {
           dynatable.queries.remove("search-grade");
+        }
+        dynatable.process();
+    });
+    $('.search-status').change( function() {
+        if ( $(this).val() == "" ) {
+          dynatable.queries.remove("search-status");
+        } else {
+          dynatable.queries.add("search-status", $(this).val());
         }
         dynatable.process();
     });

@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Cabin:600);
 body {
   background: #eee;
   margin: 0;
@@ -27,9 +28,10 @@ header {
 }
 
 header h1 {
+  font-family: 'Cabin', sans-serif;
   color: white;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 2rem;
   text-indent: 40px;
   font-weight: bold;
 }
@@ -82,8 +84,24 @@ header h1 {
 }
 .left-off-canvas-menu {
   background-color: #eee;
+  box-shadow: -4px 0 4px rgba(0,0,0,.5),4px 0 4px rgba(0,0,0,.5);
+
 }
 .left-off-canvas-menu #filter-form {
   width: 200px;
   padding: 1em;
 }
+
+.main-section {
+  height:99vh;
+  overflow-y: scroll;
+}
+
+#mazama_climb_load {  list-style: none; margin-left: 0rem;}
+
+#sort-form {  margin-top: 1em;}
+
+
+.label_tag {  position: absolute; top: 5px; right: 9px;}
+.panel h6 { font-size: .95rem; margin-bottom:.35rem; color: #777;}
+h5 > .label {  font-size: 1.25rem; }
