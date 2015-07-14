@@ -101,7 +101,20 @@ header h1 {
 
 #sort-form {  margin-top: 1em;}
 
+.bordered_block { border-bottom: 1px solid #d8d8d8; padding-bottom: 12px;}
 
-.label_tag {  position: absolute; top: 5px; right: 9px;}
-.panel h6 { font-size: .95rem; margin-bottom:.35rem; color: #777;}
+.label_tag {
+  position: relative;
+  top: -24px;
+  right: -20px;
+  width: 110px;
+  float: right;
+}
+
+.label_tag span {  width: 100%; }
+
+.panel h6 { font-size: .95rem; margin-bottom:.35rem; color: #777; }
+
 h5 > .label {  font-size: 1.25rem; }
+
+small { font-size: 80%; }
