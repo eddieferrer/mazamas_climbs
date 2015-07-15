@@ -27,6 +27,8 @@ header {
   text-align: center;
 }
 
+h1, h2, h3 { font-family: 'Cabin', sans-serif; }
+
 header h1 {
   font-family: 'Cabin', sans-serif;
   color: white;
@@ -92,20 +94,25 @@ header h1 {
   padding: 1em;
 }
 
+.left-off-canvas-menu #filter-form label{
+  clear: both;
+  display: block;
+}
+
 .main-section {
   height:99vh;
   overflow-y: scroll;
 }
 
 #mazama_climb_load {  list-style: none; margin-left: 0rem;}
-
+.climb_panel { padding-bottom: 15px;}
 #sort-form {  margin-top: 1em;}
 
 .bordered_block { border-bottom: 1px solid #d8d8d8; padding-bottom: 12px;}
 
 .label_tag {
   position: relative;
-  top: -24px;
+  top: 15px;
   right: -20px;
   width: 110px;
   float: right;
@@ -113,8 +120,8 @@ header h1 {
 
 .label_tag span {  width: 100%; }
 
-.panel h6 { font-size: .95rem; margin-bottom:.35rem; color: #777; }
+.panel h6 { font-size: .95rem; margin-bottom:.35rem; color: #999; }
 
 h5 > .label {  font-size: 1.25rem; }
 
-small { font-size: 80%; }
+small { font-size: 80%; color: #999; }

@@ -70,7 +70,7 @@ $(function() {
             '</div>' +
           '</div>' +
           '<div class="row">' +
-            '<div class="small-5 columns">' +
+            '<div class="small-6 medium-4 columns">' +
               '<h6>Peak</h6>' +
               '<h3>' +
                 '<strong><span class="peak">' + record.peak + '</span></strong>' +
@@ -80,7 +80,7 @@ $(function() {
                 '<strong><span class="route">' + record.route + '</span></strong>' +
               '</h4>' +
             '</div>' +
-            '<div class="small-5 columns">' +
+            '<div class="small-6 medium-4 columns">' +
               '<h6>Leader</h6>' +
               '<h3>' +
                 '<span class="leader">' + record.leader + '</span>' +
@@ -90,7 +90,7 @@ $(function() {
                 '<em><span class="grade">' + record.grade + '</span></em>' +
               '</h4>' +
             '</div>' +
-            '<div class="small-2 columns">' +
+            '<div class="small-6 medium-2 columns end">' +
               '<h6>Open Spots</h6>' +
               '<h4>' +
                 '<span class="spotsRemaining">' + record.spotsRemaining + '</span>/<span class="partySize">' + record.partySize + '</span>' +
@@ -102,8 +102,8 @@ $(function() {
             '</div>' +
           '</div>' +
           '<div class="row">' +
-            '<div class="small-4 columns right">' +
-              '<small class="right">Last Updated:<span class="lastUpdate">' + record.lastUpdate + '</span></small>' +
+            '<div class="small-12 medium-4 columns right">' +
+              '<small class="right"><em>Last Updated: <span class="lastUpdate">' + record.lastUpdate + '</span></em></small>' +
             '</div>' +
           '</div>' +
         '</li>';
@@ -118,6 +118,10 @@ $(function() {
           record.climbNumber = $li.find('span.climbNumber').html();
           record.departureDate = $li.find('span.departureDate').html();
           record.returnDate = $li.find('span.returnDate').html();
+
+          record.departureDateMJS = moment($li.find('span.departureDate').html(), 'ddd, DD MMM YYYY').format('MMDDYYYY');
+          record.returnDateMJS = moment($li.find('span.returnDate').html(), 'ddd, DD MMM YYYY').format('MMDDYYYY');
+
           record.peak = $li.find('span.peak').html();
           record.route = $li.find('span.route').html();
           record.grade = $li.find('span.grade').html();

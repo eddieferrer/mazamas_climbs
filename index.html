@@ -48,14 +48,26 @@
                   </select>
                 </label>
                 <hr>
-                <label>Climb Grade</label>
-                <input class="search-grade" name="gradeA" type="checkbox" value="A">A
-                <input class="search-grade" name="gradeB" type="checkbox" value="B">B
-                <input class="search-grade" name="gradeC" type="checkbox" value="C">C
-                <input class="search-grade" name="gradeD" type="checkbox" value="D">D
-                <input class="search-grade" name="gradeE" type="checkbox" value="E">E
-
-
+                <div>
+                  <label>Climb Grade</label>
+                  <input class="search-grade" name="gradeA" type="checkbox" value="A">A
+                  <input class="search-grade" name="gradeB" type="checkbox" value="B">B
+                  <input class="search-grade" name="gradeC" type="checkbox" value="C">C
+                  <input class="search-grade" name="gradeD" type="checkbox" value="D">D
+                  <input class="search-grade" name="gradeE" type="checkbox" value="E">E
+                </div>
+                <div>
+                <label>Restriction Codes</label>
+                  <input class="search-grade" name="grade+" type="checkbox" value="+">+
+                  <input class="search-grade" name="gradeC" type="checkbox" value="C">C
+                  <input class="search-grade" name="gradeE" type="checkbox" value="E">E
+                  <input class="search-grade" name="gradeF" type="checkbox" value="F">F
+                  <input class="search-grade" name="gradeH" type="checkbox" value="H">H
+                  <input class="search-grade" name="gradeL" type="checkbox" value="L">L
+                  <input class="search-grade" name="gradeA" type="checkbox" value="A">A
+                  <input class="search-grade" name="gradeS" type="checkbox" value="S">S
+                  <input class="search-grade" name="gradeY" type="checkbox" value="Y">Y
+                </div>
             </form>
         </aside>
         <section class="main-section">
@@ -76,8 +88,8 @@
                       <option value=""></option>
 
                       <option data-value="climbNumber">Climb #
-                      <option data-value="departureDate">Departure Date</option>
-                      <option data-value="returnDate">Return Date</option>
+                      <option data-value="departureDateMJS">Departure Date</option>
+                      <option data-value="returnDateMJS">Return Date</option>
                       <option data-value="peak">Peak</option>
                       <option data-value="route">Route</option>
                       <option data-value="grade">Grade</option>
@@ -161,6 +173,7 @@
 
 
   <script src="bower_components/modernizr/modernizr.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/foundation/js/foundation.min.js"></script>
   <script>
