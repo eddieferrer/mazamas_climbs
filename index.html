@@ -39,14 +39,16 @@
             <form id="filter-form">
                 <h3>Filter Climbs</h3>
                 <hr>
-                <label>Climb Status
-                  <select class="search-status" name="status">
-                    <option value="">Any</option>
-                    <option value="Cancelled">Cancelled</option>
-                    <option value="Full">Full</option>
-                    <option value="Open">Open</option>
-                  </select>
-                </label>
+                <div>
+                  <label>Climb Status
+                    <select class="search-status" name="status">
+                      <option value="">Any</option>
+                      <option value="Cancelled">Cancelled</option>
+                      <option value="Full">Full</option>
+                      <option value="Open">Open</option>
+                    </select>
+                  </label>
+                </div>
                 <hr>
                 <div>
                   <label>Climb Grade</label>
@@ -170,7 +172,12 @@
 
     </div>
   </div>
-
+  <div class="modal">
+    <!-- Loading Modal-->
+    <h3>Hello.</h3>
+    <h3>I'm loading the mazamas summer climbs. I am sorry it takes a little longer than you wanted.</h3>
+    <h3>I hope you're having a very nice day...</h3>
+  </div>
 
   <script src="bower_components/modernizr/modernizr.js"></script>
   <script src="bower_components/moment/moment.js"></script>
@@ -189,6 +196,12 @@
 
       var doc = document.documentElement;
       doc.setAttribute('data-useragent', navigator.userAgent);
+      $body = $("body");
+
+      $(document).on({
+          ajaxStart: function() { $body.addClass("loading"); },
+          ajaxStop: function() { $body.removeClass("loading"); }
+      });
   </script>
 
   <script src="bower_components/dynatable/jquery.dynatable.js"></script>

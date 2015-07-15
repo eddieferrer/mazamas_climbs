@@ -1,4 +1,32 @@
 @import url(http://fonts.googleapis.com/css?family=Cabin:600);
+/* Loading Modal style */
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+                url('../img/ajax-loader.gif')
+                50% 65%
+                no-repeat;
+    padding: 10% 20%;
+    text-align: center;
+}
+.modal h3 {
+    color: #333;
+}
+body.loading {
+    overflow: hidden;
+}
+
+body.loading .modal {
+    display: block;
+}
+
+/* Page style */
 body {
   background: #eee;
   margin: 0;
@@ -33,7 +61,7 @@ header h1 {
   font-family: 'Cabin', sans-serif;
   color: white;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-indent: 40px;
   font-weight: bold;
 }
@@ -42,7 +70,7 @@ header h1 {
   float: left;
   display: block;
   position: fixed;
-  margin: 3.5rem 2.5rem;
+  margin: 2.5rem;
   z-index:1000;
   color: white;
 }
@@ -94,26 +122,29 @@ header h1 {
   padding: 1em;
 }
 
-.left-off-canvas-menu #filter-form label{
+.left-off-canvas-menu #filter-form label {
   clear: both;
   display: block;
 }
 
+.left-off-canvas-menu #filter-form select {
+  height: auto;
+}
 .main-section {
   height:99vh;
   overflow-y: scroll;
 }
 
 #mazama_climb_load {  list-style: none; margin-left: 0rem;}
-.climb_panel { padding-bottom: 15px;}
+.climb_panel { padding-bottom: 15px; position: relative; }
 #sort-form {  margin-top: 1em;}
 
 .bordered_block { border-bottom: 1px solid #d8d8d8; padding-bottom: 12px;}
 
 .label_tag {
-  position: relative;
-  top: 15px;
-  right: -20px;
+  position: absolute;
+  top: 37px;
+  right: 0px;
   width: 110px;
   float: right;
 }

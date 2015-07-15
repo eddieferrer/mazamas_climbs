@@ -46,23 +46,23 @@ $(function() {
       //console.log(record);
       var climb_table_row = '' +
         '<li class="climb_panel panel">' +
+          '<h5 class="label_tag">' +
+            '<span class="status label ' + record.status_tag + '">' + record.status + '</span>' +
+          '</h5>' +
           '<div class="row">' +
-            '<div class="small-2 columns">' +
+            '<div class="small-12 medium-2 columns">' +
               '<h6>Climb Number</h6>' +
               '<h1>' +
                 '<strong><span class="climbNumber">' + record.climbNumber + '</span></strong>' +
               '</h1>' +
             '</div>' +
-            '<div class="small-4 columns">' +
+            '<div class="small-6 medium-4 columns">' +
               '<h6>Departing</h6>' +
               '<h3 class="bordered_block">' +
                 '<span class="departureDate">' + record.departureDate + '</span>' +
               '</h3>' +
             '</div>' +
-            '<div class="small-6 columns end">' +
-              '<h5 class="label_tag">' +
-                '<span class="status label ' + record.status_tag + '">' + record.status + '</span>' +
-              '</h5>' +
+            '<div class="small-6 medium-4 large-6 columns end">' +
               '<h6>Returning</h6>' +
               '<h3 class="bordered_block">' +
                 '<span class="returnDate">' + record.returnDate + '</span>' +
@@ -90,7 +90,7 @@ $(function() {
                 '<em><span class="grade">' + record.grade + '</span></em>' +
               '</h4>' +
             '</div>' +
-            '<div class="small-6 medium-2 columns end">' +
+            '<div class="small-6 medium-4 large-2 columns end">' +
               '<h6>Open Spots</h6>' +
               '<h4>' +
                 '<span class="spotsRemaining">' + record.spotsRemaining + '</span>/<span class="partySize">' + record.partySize + '</span>' +
