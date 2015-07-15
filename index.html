@@ -38,6 +38,10 @@
         <aside class="left-off-canvas-menu">
             <form id="filter-form">
                 <h3>Filter Climbs</h3>
+                <div>
+                  <label>Search</label>
+                  <input type="search" id="search" class="form-control search-all">
+                </div>
                 <hr>
                 <div>
                   <label>Climb Status
@@ -58,8 +62,9 @@
                   <input class="search-grade" name="gradeD" type="checkbox" value="D">D
                   <input class="search-grade" name="gradeE" type="checkbox" value="E">E
                 </div>
+                <hr>
                 <div>
-                <label>Restriction Codes</label>
+                  <label>Restriction Codes</label>
                   <input class="search-grade" name="grade+" type="checkbox" value="+">+
                   <input class="search-grade" name="gradeC" type="checkbox" value="C">C
                   <input class="search-grade" name="gradeE" type="checkbox" value="E">E
@@ -70,13 +75,16 @@
                   <input class="search-grade" name="gradeS" type="checkbox" value="S">S
                   <input class="search-grade" name="gradeY" type="checkbox" value="Y">Y
                 </div>
+                <hr>
+                <div>
+                  <label>Dates</label>
+                  <input class="search-weekend" name="weekend" type="checkbox" value="">Only Weekend Climbs
+                </div>
             </form>
         </aside>
         <section class="main-section">
           <header>
-              <h1>
-                  Mazamas Summer Climb Schedule
-              </h1>
+              <h1>Mazamas Summer Climb Schedule</h1>
           </header><!-- /header -->
           <form id="sort-form">
             <div class="row">
@@ -88,7 +96,6 @@
                   <div class="small-5 columns">
                     <select id="sort" name="sort">
                       <option value=""></option>
-
                       <option data-value="climbNumber">Climb #
                       <option data-value="departureDateMJS">Departure Date</option>
                       <option data-value="returnDateMJS">Return Date</option>

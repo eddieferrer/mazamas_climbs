@@ -129,6 +129,10 @@ header h1 {
 
 .left-off-canvas-menu #filter-form select {
   height: auto;
+  width: 181px;
+}
+.left-off-canvas-menu #filter-form hr {
+  margin: 1em 0em;
 }
 .main-section {
   height:99vh;

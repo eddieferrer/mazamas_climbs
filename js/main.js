@@ -164,6 +164,17 @@ $(function() {
         };
       })
       .bind('dynatable:init', function(e, dynatable) {
+        dynatable.queries.functions["search-weekend"] = function(record, queryValue) {
+          var weekends = ["Fri", "Sat", "Sun"];
+          for (var i = 0; i < weekends.length; i++) {
+             if ( record.departureDate.includes(weekends[i]) ) {
+               return true
+             }
+          }
+          return false
+        };
+      })
+      .bind('dynatable:init', function(e, dynatable) {
         dynatable.queries.functions["search-status"] = function(record, queryValue) {
            if ( record.status == queryValue ) {
              return true
@@ -192,7 +203,8 @@ $(function() {
               _rowReader: ulReader
           },
           inputs: {
-            queries: $('#search-status ')
+            queries: $('#search-status, #search'),
+            queryEvent: 'blur change keyup'
           }
       }).data('dynatable');
 
@@ -209,6 +221,14 @@ $(function() {
             dynatable.queries.remove("search-grade");
           }
           dynatable.process();
+      });
+      $('.search-weekend').change( function() {
+        if ( $(this).is(":checked") ) {
+          dynatable.queries.add("search-weekend", $(this).val());
+        } else {
+          dynatable.queries.remove("search-weekend");
+        }
+        dynatable.process();
       });
       $('.search-status').change( function() {
           if ( $(this).val() == "" ) {
