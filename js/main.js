@@ -90,15 +90,19 @@ $(function() {
                 '<em><span class="grade">' + record.grade + '</span></em>' +
               '</h4>' +
             '</div>' +
-            '<div class="small-6 medium-4 large-2 columns end">' +
-              '<h6>Open Spots</h6>' +
-              '<h4>' +
-                '<span class="spotsRemaining">' + record.spotsRemaining + '</span>/<span class="partySize">' + record.partySize + '</span>' +
-              '</h4>' +
-              '<h6>Grad Emphasis</h6>' +
-              '<h4>' +
-                '<span class="gradEmphasis">' + record.gradEmphasis + '</span>' +
-              '</h4>' +
+            '<div class="small-12 medium-4 large-2 columns end">' +
+              '<div class="small-float">' +
+                '<h6>Open Spots</h6>' +
+                '<h4>' +
+                  '<span class="spotsRemaining">' + record.spotsRemaining + '</span>/<span class="partySize">' + record.partySize + '</span>' +
+                '</h4>' +
+              '</div>' +
+              '<div class="small-float">' +
+                '<h6>Grad Emphasis</h6>' +
+                '<h4>' +
+                  '<span class="gradEmphasis">' + record.gradEmphasis + '</span>' +
+                '</h4>' +
+              '</div>' +
             '</div>' +
           '</div>' +
           '<div class="row">' +

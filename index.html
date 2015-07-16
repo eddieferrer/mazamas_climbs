@@ -39,46 +39,55 @@
             <form id="filter-form">
                 <h3>Filter Climbs</h3>
                 <div>
-                  <label>Search</label>
+                  <h6>Search</h6>
                   <input type="search" id="search" class="form-control search-all">
                 </div>
                 <hr>
                 <div>
-                  <label>Climb Status
-                    <select class="search-status" name="status">
-                      <option value="">Any</option>
-                      <option value="Cancelled">Cancelled</option>
-                      <option value="Full">Full</option>
-                      <option value="Open">Open</option>
-                    </select>
-                  </label>
+                  <h6>Climb Status</h6>
+                  <select class="search-status" name="status">
+                    <option value="">Any</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Full">Full</option>
+                    <option value="Open">Open</option>
+                  </select>
                 </div>
                 <hr>
                 <div>
-                  <label>Climb Grade</label>
-                  <input class="search-grade" name="gradeA" type="checkbox" value="A">A
-                  <input class="search-grade" name="gradeB" type="checkbox" value="B">B
-                  <input class="search-grade" name="gradeC" type="checkbox" value="C">C
-                  <input class="search-grade" name="gradeD" type="checkbox" value="D">D
-                  <input class="search-grade" name="gradeE" type="checkbox" value="E">E
+                  <h6>Climb Grade</h6>
+                  <input class="search-grade" name="gradeA" type="checkbox" value="A"><label class="small">A</label>
+                  <input class="search-grade" name="gradeB" type="checkbox" value="B"><label class="small">B</label>
+                  <input class="search-grade" name="gradeC" type="checkbox" value="C"><label class="small">C</label>
+                  <input class="search-grade" name="gradeD" type="checkbox" value="D"><label class="small">D</label>
+                  <input class="search-grade" name="gradeE" type="checkbox" value="E"><label class="small">E</label>
                 </div>
                 <hr>
                 <div>
-                  <label>Restriction Codes</label>
-                  <input class="search-grade" name="grade+" type="checkbox" value="+">+
-                  <input class="search-grade" name="gradeC" type="checkbox" value="C">C
-                  <input class="search-grade" name="gradeE" type="checkbox" value="E">E
-                  <input class="search-grade" name="gradeF" type="checkbox" value="F">F
-                  <input class="search-grade" name="gradeH" type="checkbox" value="H">H
-                  <input class="search-grade" name="gradeL" type="checkbox" value="L">L
-                  <input class="search-grade" name="gradeA" type="checkbox" value="A">A
-                  <input class="search-grade" name="gradeS" type="checkbox" value="S">S
-                  <input class="search-grade" name="gradeY" type="checkbox" value="Y">Y
+                  <h6>Restriction Codes</h6>
+                  <input class="search-grade" name="grade+" type="checkbox" value="+">
+                  <label class="small" for="">+</label>
+                  <input class="search-grade" name="gradeC" type="checkbox" value="C">
+                  <label class="small" for="">C</label>
+                  <input class="search-grade" name="gradeE" type="checkbox" value="E">
+                  <label class="small" for="">E</label>
+                  <input class="search-grade" name="gradeF" type="checkbox" value="F">
+                  <label class="small" for="">F</label>
+                  <input class="search-grade" name="gradeH" type="checkbox" value="H">
+                  <label class="small" for="">H</label>
+                  <input class="search-grade" name="gradeL" type="checkbox" value="L">
+                  <label class="small" for="">L</label>
+                  <input class="search-grade" name="gradeA" type="checkbox" value="A">
+                  <label class="small" for="">A</label>
+                  <input class="search-grade" name="gradeS" type="checkbox" value="S">
+                  <label class="small" for="">S</label>
+                  <input class="search-grade" name="gradeY" type="checkbox" value="Y">
+                  <label class="small" for="">Y</label>
                 </div>
                 <hr>
                 <div>
-                  <label>Dates</label>
-                  <input class="search-weekend" name="weekend" type="checkbox" value="">Only Weekend Climbs
+                  <h6>Dates</h6>
+                    <input id="search-weekend" class="search-weekend" name="weekend" type="checkbox" >
+                    <label for="">Only Weekend Climbs</label>
                 </div>
             </form>
         </aside>
@@ -88,7 +97,7 @@
           </header><!-- /header -->
           <form id="sort-form">
             <div class="row">
-              <div class="small-12 medium-6 columns right">
+              <div class="small-12 medium-12 large-6 columns right">
                 <div class="row">
                   <div class="small-3 columns">
                     <label for="right-label" class="right inline">Sort By</label>

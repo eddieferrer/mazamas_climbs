@@ -28,7 +28,7 @@ body.loading .modal {
 
 /* Page style */
 body {
-  background: #eee;
+  background: #E1E2E5;
   margin: 0;
   padding: 0;
   font-family: "Source Sans Pro", sans-serif;
@@ -122,17 +122,16 @@ header h1 {
   padding: 1em;
 }
 
-.left-off-canvas-menu #filter-form label {
-  clear: both;
-  display: block;
-}
-
 .left-off-canvas-menu #filter-form select {
   height: auto;
   width: 181px;
 }
 .left-off-canvas-menu #filter-form hr {
   margin: 1em 0em;
+}
+.left-off-canvas-menu #filter-form input[type="checkbox"] + label.small {
+  width: 11% ;
+  text-align: left;
 }
 .main-section {
   height:99vh;
@@ -160,3 +159,15 @@ header h1 {
 h5 > .label {  font-size: 1.25rem; }
 
 small { font-size: 80%; color: #999; }
+
+.small-float {
+  width: 50%;
+  float: right;
+}
+
+.small-float:last-child { padding-right: .9375rem; }
+.small-float:first-child { padding-left: .9375rem; }
+
+@media only screen and (min-width: 40.0625em) {
+  .small-float, .small-float:first-child, .small-float:last-child{ width: 100%; float: left; padding: 0px; padding-right: 0rem; padding-left: 0rem; }
+}
