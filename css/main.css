@@ -37,9 +37,9 @@ body {
 
 header {
   width: 100%;
-  padding: 160px 0;
+  padding: 140px 0;
 
-  background: url(../img/mthood.jpg) no-repeat -834px -110px fixed;
+  background: url(../img/mthood.jpg) no-repeat top center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -123,15 +123,22 @@ header h1 {
 }
 
 .left-off-canvas-menu #filter-form select {
+  margin-bottom: 0px;
   height: auto;
   width: 181px;
+}
+.left-off-canvas-menu #filter-form input[type="text"] {
+  margin-bottom: 0px;
 }
 .left-off-canvas-menu #filter-form hr {
   margin: 1em 0em;
 }
 .left-off-canvas-menu #filter-form input[type="checkbox"] + label.small {
-  width: 22px;
   text-align: left;
+}
+.climb_grades_checkbox_wrapper div, .climb_restrictions_checkbox_wrapper div {
+  width: 31%;
+  float: left;
 }
 .main-section {
   height:99vh;
