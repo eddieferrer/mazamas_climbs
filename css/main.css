@@ -8,10 +8,7 @@
     left:       0;
     height:     99vh;
     width:      100%;
-    background: rgba( 255, 255, 255, .8 )
-                url('../img/ajax-loader.gif')
-                50% 52%
-                no-repeat;
+    background: rgba( 255, 255, 255, .8 ) url('../img/ajax-loader.gif') center bottom 50px no-repeat;
     padding: 10% 20%;
     text-align: center;
 }

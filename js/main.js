@@ -90,7 +90,7 @@ $(function() {
                 '<em><span class="grade">' + record.grade + '</span></em>' +
               '</h4>' +
             '</div>' +
-            '<div class="small-12 medium-4 large-2 columns end">' +
+            '<div class="small-12 medium-4 large-4 columns end">' +
               '<div class="small-float">' +
                 '<h6>Open Spots</h6>' +
                 '<h4>' +
@@ -159,6 +159,17 @@ $(function() {
       })
       .bind('dynatable:init', function(e, dynatable) {
         dynatable.queries.functions["search-grade"] = function(record, queryValue) {
+          var record_substring = record.grade.split("(");
+          for (var i = 0; i < queryValue.length; i++) {
+             if ( record_substring[0].includes(queryValue[i])) {
+               return true
+             }
+          }
+          return false
+        };
+      })
+      .bind('dynatable:init', function(e, dynatable) {
+        dynatable.queries.functions["search-restriction"] = function(record, queryValue) {
           for (var i = 0; i < queryValue.length; i++) {
              if ( record.grade.includes(queryValue[i]) ) {
                return true
@@ -223,6 +234,20 @@ $(function() {
             dynatable.queries.add("search-grade",checked_values);
           } else {
             dynatable.queries.remove("search-grade");
+          }
+          dynatable.process();
+      });
+      $('.search-restriction').change( function() {
+          var checked_values = [];
+          $('.search-restriction').each( function (){
+            if ( $(this).is(":checked") ) {
+              checked_values.push($(this).val());
+            }
+          });
+          if ( checked_values.length > 0 ) {
+            dynatable.queries.add("search-restriction",checked_values);
+          } else {
+            dynatable.queries.remove("search-restriction");
           }
           dynatable.process();
       });
