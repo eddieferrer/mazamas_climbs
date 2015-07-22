@@ -1,7 +1,7 @@
 $(function() {
-   // this works, but lets not spam the mazamas server for now
    $.ajax({
       url: 'http://crossorigin.me/http://mazamas.org/activities-events/climbing/',
+      //use this to test offline url: 'mazamas_climbs_bak.html',
       type: 'GET',
       success: function(res) {
           var record = {};
