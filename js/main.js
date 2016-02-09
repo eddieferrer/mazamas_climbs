@@ -196,6 +196,38 @@ $(function() {
            }
         };
       })
+      .bind('dynatable:init', function(e, dynatable) {
+        dynatable.queries.functions["search-emphasis"] = function(record, queryValue) {
+          for (var i = 0; i < queryValue.length; i++) {
+             if ( record.gradEmphasis.includes(queryValue[i]) ) {
+               return true
+             }
+          }
+          return false
+        };
+      })
+      .bind('dynatable:init', function(e, dynatable) {
+        dynatable.queries.functions["search-guardian"] = function(record, queryValue) {
+          var guardian_peaks = ["Adams", "Hood", "Helens"];
+          for (var i = 0; i < guardian_peaks.length; i++) {
+             if ( record.peak.includes(guardian_peaks[i]) ) {
+               return true
+             }
+          }
+          return false
+        };
+      })
+      .bind('dynatable:init', function(e, dynatable) {
+        dynatable.queries.functions["search-sixteen"] = function(record, queryValue) {
+          var sixteen_peaks = ["Rainier", "Shasta", "Adams", "Hood", "Baker", "Glacier", "Jefferson", "Sister", "Stuart", "Shuksan", "Helens", "Olympus", "Jack", "Washington"];
+          for (var i = 0; i < sixteen_peaks.length; i++) {
+             if ( record.peak.includes(sixteen_peaks[i]) ) {
+               return true
+             }
+          }
+          return false
+        };
+      })
       .dynatable({
           features: {
               paginate: true,
@@ -251,11 +283,41 @@ $(function() {
           }
           dynatable.process();
       });
+      $('.search-emphasis').change( function() {
+          var checked_values = [];
+          $('.search-emphasis').each( function (){
+            if ( $(this).is(":checked") ) {
+              checked_values.push($(this).val());
+            }
+          });
+          if ( checked_values.length > 0 ) {
+            dynatable.queries.add("search-emphasis",checked_values);
+          } else {
+            dynatable.queries.remove("search-emphasis");
+          }
+          dynatable.process();
+      });
       $('.search-weekend').change( function() {
         if ( $(this).is(":checked") ) {
           dynatable.queries.add("search-weekend", $(this).val());
         } else {
           dynatable.queries.remove("search-weekend");
+        }
+        dynatable.process();
+      });
+      $('.search-guardian').change( function() {
+        if ( $(this).is(":checked") ) {
+          dynatable.queries.add("search-guardian", $(this).val());
+        } else {
+          dynatable.queries.remove("search-guardian");
+        }
+        dynatable.process();
+      });
+      $('.search-sixteen').change( function() {
+        if ( $(this).is(":checked") ) {
+          dynatable.queries.add("search-sixteen", $(this).val());
+        } else {
+          dynatable.queries.remove("search-sixteen");
         }
         dynatable.process();
       });
@@ -279,6 +341,19 @@ $(function() {
           $('#sort').trigger("change");
           return
         }
+      });
+      $('#reset-filters').click( function(e) {
+        e.preventDefault();
+        $('#filter-form')[0].reset();
+        $('#search').val('');
+        dynatable.queries.remove("search-grade");
+        dynatable.queries.remove("search-restriction");
+        dynatable.queries.remove("search-emphasis");
+        dynatable.queries.remove("search-weekend");
+        dynatable.queries.remove("search-guardian");
+        dynatable.queries.remove("search-sixteen");
+        dynatable.queries.remove("search-status");
+        dynatable.process();
       });
     }
 

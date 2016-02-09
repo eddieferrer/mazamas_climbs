@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Cabin:600);
+form h6 { font-size: 85%; margin-bottom: .35em;  }
 /* Loading Modal style */
 .modal {
     display:    none;
@@ -36,7 +37,7 @@ header {
   width: 100%;
   padding: 140px 0;
 
-  background: url(../img/mthood.jpg) no-repeat top center fixed;
+  background: url(../img/lousy_lake2.jpg) no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -61,6 +62,14 @@ header h1 {
   font-size: 2.5rem;
   text-indent: 40px;
   font-weight: bold;
+  /* Fallback for web browsers that don't support RGBa */
+   background-color: rgb(0, 0, 0);
+   /* RGBa with 0.6 opacity */
+   background-color: rgba(0, 0, 0, 0.4);
+   /* For IE 5.5 - 7*/
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+   /* For IE 8*/
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
 .left-off-canvas-toggle .menu {
@@ -128,13 +137,17 @@ header h1 {
   margin-bottom: 0px;
 }
 .left-off-canvas-menu #filter-form hr {
-  margin: 1em 0em;
+  margin: .65em 0em;
 }
 .left-off-canvas-menu #filter-form input[type="checkbox"] + label.small {
   text-align: left;
 }
 .climb_grades_checkbox_wrapper div, .climb_restrictions_checkbox_wrapper div {
   width: 31%;
+  float: left;
+}
+.climb_emphasis_checkbox_wrapper div {
+  width: 48%;
   float: left;
 }
 .main-section {
@@ -174,4 +187,8 @@ small { font-size: 80%; color: #999; }
 
 @media only screen and (min-width: 40.0625em) {
   .small-float, .small-float:first-child, .small-float:last-child{ width: 100%; float: left; padding: 0px; padding-right: 0rem; padding-left: 0rem; }
+}
+
+.postfix, .prefix {
+  width: auto;
 }
