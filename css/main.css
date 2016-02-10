@@ -80,7 +80,18 @@ header h1 {
   z-index:1000;
   color: white;
 }
+.menu h5 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 2px 0px;
+  font-size: 13px;
+  text-shadow: 1px 1px 5px #43AC6A;
 
+}
+.off-canvas-wrap.move-right .menu h5 {
+  text-shadow: 1px 1px 5px #f04124;
+}
 .move-left .exit-off-canvas {
   box-shadow: none;
 }
@@ -111,6 +122,7 @@ header h1 {
   transform: rotate(-45deg);
   background-color: #FFF;
   border: 1px solid #f04124;
+  margin-left: -5px;
 }
 
 .middle-bar-close {
@@ -124,6 +136,7 @@ header h1 {
   transform: rotate(45deg);
   background-color: #FFF;
   border: 1px solid #f04124;
+  margin-left: -5px;
 }
 .left-off-canvas-menu {
   background-color: #eee;
