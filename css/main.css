@@ -96,7 +96,9 @@ header h1 {
   height: 10px;
   background-color: #FFF;
   margin-bottom: 4px;
-  transition: transform 0.4s cubic-bezier(1, 0, 0, 1) 0, background-color 0.6s ease 0; }
+  transition: transform 0.4s cubic-bezier(1, 0, 0, 1) 0, background-color 0.6s ease 0;
+  border: 1px solid #43AC6A;
+}
 
 .top-bar, .bottom-bar {
   transform-origin: 100% 50%; }
@@ -107,16 +109,21 @@ header h1 {
 
 .top-bar-close {
   transform: rotate(-45deg);
-  background-color: #FFF; }
+  background-color: #FFF;
+  border: 1px solid #f04124;
+}
 
 .middle-bar-close {
   opacity: 0;
   transition-property: opacity;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+  border: 1px solid #f04124;
+}
 
 .bottom-bar-close {
   transform: rotate(45deg);
   background-color: #FFF;
+  border: 1px solid #f04124;
 }
 .left-off-canvas-menu {
   background-color: #eee;
