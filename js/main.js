@@ -1,45 +1,51 @@
 $(function() {
-   $.ajax({
-      url: 'http://crossorigin.me/http://mazamas.org/activities-events/climbing/',
-      //use this to test offline url: 'mazamas_climbs_bak.html',
-      type: 'GET',
-      success: function(res) {
-          var record = {};
-          $(res).find('#climb-schedule tbody tr').each( function (){
-            record.details = $(this).find('td:nth-child(1)').html();
-            record.climbNumber = $(this).find('td:nth-child(2)').html();
-            record.departureDate = $(this).find('td:nth-child(3)').html();
-            record.returnDate = $(this).find('td:nth-child(4)').html();
-            record.peak = $(this).find('td:nth-child(5)').html();
-            record.route = $(this).find('td:nth-child(6)').html();
-            record.grade = $(this).find('td:nth-child(7)').html();
-            record.leader = $(this).find('td:nth-child(8)').html();
-            record.gradEmphasis = $(this).find('td:nth-child(9)').html();
-            record.partySize = $(this).find('td:nth-child(10)').html();
-            record.spotsRemaining = $(this).find('td:nth-child(11)').html();
-            record.status = $(this).find('td:nth-child(12)').html();
-            record.lastUpdate = $(this).find('td:nth-child(13)').html();
-            var climb_table_row = '<li class="climb_panel panel">' +
-                  '<span class="details">' + record.details + '</span>' +
-                  '<span class="climbNumber">' + record.climbNumber + '</span>' +
-                  '<span class="departureDate">' + record.departureDate + '</span>' +
-                  '<span class="returnDate">' + record.returnDate + '</span>' +
-                  '<span class="peak">' + record.peak + '</span>' +
-                  '<span class="route">' + record.route + '</span>' +
-                  '<span class="grade">' + record.grade + '</span>' +
-                  '<span class="leader">' + record.leader + '</span>' +
-                  '<span class="gradEmphasis">' + record.gradEmphasis + '</span>' +
-                  '<span class="partySize">' + record.partySize + '</span>' +
-                  '<span class="spotsRemaining">' + record.spotsRemaining + '</span>' +
-                  '<span class="status">' + record.status + '</span>' +
-                  '<span class="lastUpdate">' + record.lastUpdate + '</span>' +
-                 '</li>';
-            $("#mazama_climb_load").append(climb_table_row);
-          });
-          loadTable();
-        }
-      });
+   var current_date = new Date();
 
+   if (current_date.getMonth() > 9 || current_date.getMonth() < 3) {
+     $('.date_lock').removeClass('hide');
+   } else {
+     $('.date_loading').removeClass('hide');
+     $.ajax({
+        url: 'http://crossorigin.me/http://mazamas.org/activities-events/climbing/',
+        //use this to test offline url: 'mazamas_climbs_bak.html',
+        type: 'GET',
+        success: function(res) {
+            var record = {};
+            $(res).find('#climb-schedule tbody tr').each( function (){
+              record.details = $(this).find('td:nth-child(1)').html();
+              record.climbNumber = $(this).find('td:nth-child(2)').html();
+              record.departureDate = $(this).find('td:nth-child(3)').html();
+              record.returnDate = $(this).find('td:nth-child(4)').html();
+              record.peak = $(this).find('td:nth-child(5)').html();
+              record.route = $(this).find('td:nth-child(6)').html();
+              record.grade = $(this).find('td:nth-child(7)').html();
+              record.leader = $(this).find('td:nth-child(8)').html();
+              record.gradEmphasis = $(this).find('td:nth-child(9)').html();
+              record.partySize = $(this).find('td:nth-child(10)').html();
+              record.spotsRemaining = $(this).find('td:nth-child(11)').html();
+              record.status = $(this).find('td:nth-child(12)').html();
+              record.lastUpdate = $(this).find('td:nth-child(13)').html();
+              var climb_table_row = '<li class="climb_panel panel">' +
+                    '<span class="details">' + record.details + '</span>' +
+                    '<span class="climbNumber">' + record.climbNumber + '</span>' +
+                    '<span class="departureDate">' + record.departureDate + '</span>' +
+                    '<span class="returnDate">' + record.returnDate + '</span>' +
+                    '<span class="peak">' + record.peak + '</span>' +
+                    '<span class="route">' + record.route + '</span>' +
+                    '<span class="grade">' + record.grade + '</span>' +
+                    '<span class="leader">' + record.leader + '</span>' +
+                    '<span class="gradEmphasis">' + record.gradEmphasis + '</span>' +
+                    '<span class="partySize">' + record.partySize + '</span>' +
+                    '<span class="spotsRemaining">' + record.spotsRemaining + '</span>' +
+                    '<span class="status">' + record.status + '</span>' +
+                    '<span class="lastUpdate">' + record.lastUpdate + '</span>' +
+                   '</li>';
+              $("#mazama_climb_load").append(climb_table_row);
+            });
+            loadTable();
+          }
+        });
+   }
 
     // Function that renders the list items from our records
     function ulWriter(rowIndex, record, columns, cellWriter) {
@@ -356,6 +362,4 @@ $(function() {
         dynatable.process();
       });
     }
-
-
 });

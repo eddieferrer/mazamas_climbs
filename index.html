@@ -15,11 +15,10 @@
     <link rel="stylesheet" href="bower_components/foundation/css/foundation.min.css"/>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bower_components/dynatable/jquery.dynatable.css">
-    <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet"> -->
 
 </head>
-
-<body>
+<!-- how to activate: -->
+<body class="loading">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -256,9 +255,14 @@
   </div>
   <div class="modal">
     <!-- Loading Modal-->
-    <h3>Hello.</h3>
-    <h3>I'm loading the mazamas summer climbs. I am sorry it's taking some time.</h3>
-    <h3>I hope you're having a very nice day...</h3>
+    <div class="date_lock hide">
+      <h3>Hello.</h3>
+      <h3>This is not the climb schedule you were looking for.<br/> Please come back in April</h3>
+    </div>
+    <div class="date_loading hide">
+      <h3>I'm loading the mazamas summer climbs. I am sorry it's taking some time.</h3>
+      <h3>I hope you're having a very nice day...</h3>
+    </div>
   </div>
 
   <script src="bower_components/modernizr/modernizr.js"></script>
