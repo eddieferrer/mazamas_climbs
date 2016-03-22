@@ -1,7 +1,7 @@
 $(function() {
    var current_date = new Date();
 
-   if (current_date.getMonth() > 9 || current_date.getMonth() < 3) {
+   if (current_date.getMonth() > 9 || current_date.getMonth() < 2 || current_date.getMonth() == 2 && current_date.getDate() < 21 ) {
      $('.date_lock').removeClass('hide');
    } else {
      $('.date_loading').removeClass('hide');
