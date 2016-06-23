@@ -6,7 +6,7 @@ $(function() {
    } else {
      $('.date_loading').removeClass('hide');
      $.ajax({
-        url: 'http://crossorigin.me/http://mazamas.org/activities-events/climbing/',
+        url: 'https://crossorigin.me/http://mazamas.org/activities-events/climbing/',
         //use this to test offline url: 'mazamas_climbs_bak.html',
         type: 'GET',
         success: function(res) {
